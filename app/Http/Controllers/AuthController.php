@@ -16,4 +16,12 @@ class AuthController extends Controller
 
         return view('page.welcome', ['firstName' => $firstName, 'lastName' => $lastName]);
     }
+
+    public function tablePage() {
+        return view('page.table');
+    }
+
+    public function dataTablePage() {
+        return view('page.dataTable');
+    }
 }

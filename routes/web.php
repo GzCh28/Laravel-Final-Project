@@ -20,3 +20,7 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get( '/register', [AuthController::class, 'registerPage']);
 
 Route::post('/welcome', [AuthController::class, 'welcomePage']);
+
+Route::get('/table', [AuthController::class, 'tablePage']);
+
+Route::get('/datatable', [AuthController::class, 'dataTablePage']);
