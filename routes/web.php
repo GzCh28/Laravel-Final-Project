@@ -44,4 +44,3 @@ Route::put('/cast/update/{id}', [CastsController::class, 'updateCast']);
 
 # Delete
 Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
-Route::get('/cast/delete/all', [CastsController::class, 'deleteAllCasts']);

@@ -43,9 +43,4 @@ List Data Cast
   </tbody>
 </table>
 
-<form method="POST">
-  @method('DELETE')
-  <a href="/cast/delete/all" style="float: right" class="btn btn-danger btn-sm mt-2" onclick="return confirm('Are you sure to delete All Cast?')">Delete All Cast</a>
-</form>
-
 @endsection

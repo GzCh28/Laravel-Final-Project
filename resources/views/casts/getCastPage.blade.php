@@ -12,11 +12,11 @@ Detailed Cast Information
 <div class="card">
   <div class="card-body">
     <h5>Name:</h5>
-    <p>{{$cast->name}}</p>
+    <p>{{ $cast->name }}</p>
     <h5>Age:</h5>
-    <p>{{$cast->age}}</p>
+    <p>{{ $cast->age }}</p>
     <h5>Biography:</h5>
-    <p>{{$cast->bio}}</p>
+    <p>{{ $cast->bio }}</p>
   </div>
 </div>
 @endsection

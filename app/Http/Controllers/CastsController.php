@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\DB;
 
 class CastsController extends Controller
@@ -15,6 +14,7 @@ class CastsController extends Controller
 
     public function getCastbyId($id) {
         $cast = DB::table('cast')->where('id', $id)->first();
+
         return view('casts.getCastPage', ['cast' => $cast]);
     }
 
@@ -61,14 +61,6 @@ class CastsController extends Controller
 
     public function deleteCast($id) {
         DB::table('cast')->where('id', $id)->delete();
-
-        return redirect('/cast');
-    }
-
-    public function deleteAllCasts() {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        DB::table('cast')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
         return redirect('/cast');
     }
