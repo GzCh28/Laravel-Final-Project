@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\CastController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastsController;
-
-use PHPUnit\Framework\ComparisonMethodDoesNotDeclareBoolReturnTypeException;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +42,6 @@ Route::put('/cast/update/{id}', [CastsController::class, 'updateCast']);
 
 # Delete
 Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
+
+//Genre Route
+Route::resource('genre', GenreController::class);
