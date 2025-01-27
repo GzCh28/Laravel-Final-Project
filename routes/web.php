@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
@@ -45,3 +46,6 @@ Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
 
 //Genre Route
 Route::resource('genre', GenreController::class);
+
+//Film Route
+Route::resource('film', FilmController::class);

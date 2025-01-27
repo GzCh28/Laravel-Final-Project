@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
+  <title>Final Project SanberCode | Blank Page</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,7 +14,7 @@
 
   @stack('style')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="font-family: 'Times New Roman'">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -26,7 +26,7 @@
     <!-- Brand Logo -->
     <a href="{{asset('/template/index3.html')}}" class="brand-link">
       <img src="{{asset('/template/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Project Laravel</span>
     </a>
 
     <!-- Sidebar -->
@@ -59,7 +59,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">@yield('title2')</h3>
+          <h2 class="card-title">@yield('title2')</h2>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -70,12 +70,13 @@
             </button>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body mb-4">
           @yield('content')
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          Gazent C
+          <hr class="horizontal-line">
+          <p style="font-size: x-small">By Gazent C</p>
         </div>
         <!-- /.card-footer-->
       </div>
