@@ -17,7 +17,7 @@ use App\Http\Controllers\GenreController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Dashboard Route
 Route::get('/', [DashboardController::class, 'index']);
 
 Route::get( '/register', [AuthController::class, 'registerPage']);
@@ -27,6 +27,9 @@ Route::post('/welcome', [AuthController::class, 'welcomePage']);
 Route::get('/table', [AuthController::class, 'tablePage']);
 
 Route::get('/datatable', [AuthController::class, 'dataTablePage']);
+
+
+
 
 
 # Create
@@ -49,3 +52,4 @@ Route::resource('genre', GenreController::class);
 
 //Film Route
 Route::resource('film', FilmController::class);
+

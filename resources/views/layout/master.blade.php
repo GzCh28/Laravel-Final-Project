@@ -28,6 +28,20 @@
       <img src="{{asset('/template/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Project Laravel</span>
     </a>
+    
+    <!-- Account -->
+    <a href="#" class="brand-link container-fluid">
+      <i class="nav-icon fas fa-user ml-4 mr-2"></i>
+      <span class="brand-text font-weight-light">
+        @guest
+          Guest Mode
+        @endguest
+
+        @auth
+          {{ Auth::user()->name }}
+        @endauth
+      </span>
+    </a>
 
     <!-- Sidebar -->
     @include('part.sidebar')
