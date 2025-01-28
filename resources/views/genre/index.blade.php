@@ -16,7 +16,9 @@ List Genre
     <tr>
       <th scope="col">No</th>
       <th scope="col">Genre</th>
+      @auth
       <th scope="col">Actions</th>
+      @endauth
     </tr>
   </thead>
   <tbody>
@@ -24,6 +26,7 @@ List Genre
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ $genre->name }}</td>
+      @auth
       <td>
         <form action="/genre/{{$genre->id}}" method="POST">
           @csrf
@@ -33,6 +36,7 @@ List Genre
           <button type="submit" class="btn btn-danger btn-sm">Delete Genre</button>
         </form>
       </td>
+      @endauth
     </tr>
     @empty
     <tr>

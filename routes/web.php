@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastsController;
 use App\Http\Controllers\GenreController;
-
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,26 +30,35 @@ Route::get('/datatable', [AuthController::class, 'dataTablePage']);
 
 
 
+Route::middleware(['auth'])->group(function () {
+  # Create
+  Route::get('/cast/create', [CastsController::class, 'createCast']);
+  Route::post('/cast', [CastsController::class, 'postCreate']);
+  # Update
+  Route::get('/cast/recreate/{id}', [CastsController::class, 'recreateCast']);
+  Route::put('/cast/update/{id}', [CastsController::class, 'updateCast']);
+
+  # Delete
+  Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
+});
 
 
-# Create
-Route::get('/cast/create', [CastsController::class, 'createCast']);
-Route::post('/cast', [CastsController::class, 'postCreate']);
 
 # Read
 Route::get('/cast', [CastsController::class, 'getAllCasts']);
 Route::get('/cast/{id}', [CastsController::class, 'getCastbyId']);
 
-# Update
-Route::get('/cast/recreate/{id}', [CastsController::class, 'recreateCast']);
-Route::put('/cast/update/{id}', [CastsController::class, 'updateCast']);
 
-# Delete
-Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
 
 //Genre Route
 Route::resource('genre', GenreController::class);
 
 //Film Route
 Route::resource('film', FilmController::class);
+
+//Profile Route
+Route::resource('profile', ProfileController::class);
+
+//Auth Route
+Auth::routes();
 

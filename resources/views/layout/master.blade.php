@@ -30,18 +30,22 @@
     </a>
     
     <!-- Account -->
-    <a href="#" class="brand-link container-fluid">
+    @guest
+    <a class="brand-link container-fluid">
       <i class="nav-icon fas fa-user ml-4 mr-2"></i>
-      <span class="brand-text font-weight-light">
-        @guest
-          Guest Mode
-        @endguest
-
-        @auth
-          {{ Auth::user()->name }}
-        @endauth
-      </span>
+      <span class="brand-text font-weight-light">Guest Mode</span>
     </a>
+    @endguest
+
+    @auth
+    <a href="/profile/{{ Auth::user()->id }}/edit" class="brand-link container-fluid">
+      <i class="nav-icon fas fa-user ml-4 mr-2"></i>
+      <span class="brand-text font-weight-light">{{ Auth::user()->name }}</span>
+    </a>  
+    @endauth
+
+
+    
 
     <!-- Sidebar -->
     @include('part.sidebar')

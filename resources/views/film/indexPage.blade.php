@@ -9,7 +9,9 @@ List Film
 @endsection
 
 @section('content')
-<a href="/film/create" class="btn btn-primary btn-sm mb-2">Create New Film(+)</a>
+@auth
+<a href="/film/create" class="btn btn-primary btn-sm mb-2">Create New Film(+)</a>  
+@endauth
 
 <table class="table">
   <thead>
@@ -20,7 +22,9 @@ List Film
       <th scope="col">Release Year</th>
       <th scope="col">Summary</th>
       <th scope="col">Poster</th>
-      <th scope="col"></th>
+      @auth
+      <th scope="col"></th>  
+      @endauth
     </tr>
   </thead>
   <tbody>
@@ -34,7 +38,8 @@ List Film
       <td>
         <img src="{{ asset('poster_folder/' . $film->poster) }}" width="auto" height="100px" class="mb-2"><br>
         <a href="/film/{{$film->id}}" style="font-size: small">Klik untuk Detail Poster</a>
-      </td>
+      </td> 
+      @auth
       <td>
         <form action="/film/{{$film->id}}" method="POST">
           @csrf
@@ -42,7 +47,9 @@ List Film
           <a href="/film/{{$film->id}}/edit" class="btn btn-secondary btn-sm mx-1 my-1 w-75">Update Film</a>
           @method('Delete')
           <button class="btn btn-danger btn-sm mx-1 my-1 w-75">Delete Film</button> 
+        </form>
       </td>
+      @endauth
     </tr>
     @empty
     <tr>
