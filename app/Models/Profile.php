@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Profile extends Model
 {
@@ -16,4 +17,8 @@ class Profile extends Model
         'bio',
         'user_id',
     ];
+
+    public function toUserTable() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

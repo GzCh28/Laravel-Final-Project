@@ -40,7 +40,7 @@
     @auth
     <a href="/profile/{{ Auth::user()->id }}/edit" class="brand-link container-fluid">
       <i class="nav-icon fas fa-user ml-4 mr-2"></i>
-      <span class="brand-text font-weight-light">{{ Auth::user()->name }}</span>
+      <span class="brand-text font-weight-light">{{ Auth::user()->name }} ({{Auth::user()->toProfileTable->age}})</span>
     </a>  
     @endauth
 
