@@ -29,6 +29,7 @@
         </a>
       </li>
       </li>
+      {{-- 
       <li class="nav-item">
         <a href="/cast" class="nav-link">
           <i class="nav-icon fas fa-th"></i>
@@ -37,6 +38,7 @@
           </p>
         </a>
       </li>
+      --}}
       <li class="nav-item">
         <a href="/genre" class="nav-link">
           <i class="nav-icon fas fa-th"></i>

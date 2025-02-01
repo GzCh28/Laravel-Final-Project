@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profile;
+use App\Models\Reviews;
 
 class User extends Authenticatable
 {
@@ -48,5 +49,10 @@ class User extends Authenticatable
     public function toProfileTable() 
     {
         return $this->hasOne(Profile::class, 'user_id');
+    }
+
+    public function toReviewTable() 
+    {
+        return $this->hasMany(Reviews::class, 'user_id');
     }
 }

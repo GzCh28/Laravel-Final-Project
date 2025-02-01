@@ -9,7 +9,9 @@ List Genre
 @endsection
 
 @section('content')
-<a href="/genre/create" class="btn btn-primary btn-sm mb-2">Create New(+)</a>
+@auth
+<a href="/genre/create" class="btn btn-primary btn-sm mb-2">Add New (+)</a> 
+@endauth
 
 <table class="table">
   <thead>
@@ -30,6 +32,7 @@ List Genre
       <td>
         <form action="/genre/{{$genre->id}}" method="POST">
           @csrf
+          <a href="/genre/{{$genre->id}}" class="btn btn-info btn-sm">List Film</a>
           <a href="/genre/{{$genre->id}}/edit" class="btn btn-secondary btn-sm">Update Genre</a>
           
           @method('DELETE')

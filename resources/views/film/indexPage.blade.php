@@ -10,7 +10,7 @@ List Film
 
 @section('content')
 @auth
-<a href="/film/create" class="btn btn-primary btn-sm mb-2">Create New Film(+)</a>  
+<a href="/film/create" class="btn btn-primary btn-sm mb-2">Add New Film (+)</a>  
 @endauth
 
 <table class="table">
@@ -32,12 +32,15 @@ List Film
     <tr>
       <td>{{ $key + 1 }}</td>
       <td>{{ $film->title }}</td>
-      <td>{{ $film->genre_id }}</td>
+      <td>{{ $film->toGenreTable->name }}</td>
       <td>{{ $film->release_year }}</td>
       <td>{{ Str::limit($film->summary, 100) }}</td>
       <td>
         <img src="{{ asset('poster_folder/' . $film->poster) }}" width="auto" height="100px" class="mb-2"><br>
-        <a href="/film/{{$film->id}}" style="font-size: small">Klik untuk Detail Poster</a>
+        @guest
+          <a href="/film/{{$film->id}}" class="mx-1" style="font-size: small">Detail Film</a>
+        @endguest
+        
       </td> 
       @auth
       <td>

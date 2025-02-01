@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Genre;
 use App\Models\Film;
+use App\Models\Reviews;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class FilmController extends Controller
 {
@@ -65,7 +68,16 @@ class FilmController extends Controller
     public function show(string $id)
     {
         $film = Film::find($id);
-        return view('film.showPage', ['film' => $film]);
+        if (Auth::check()) {
+            $authId = Auth::user()->id;
+            $reviewYet = Reviews::where('film_id', $id)->where('user_id', $authId)->get();
+            return view('film.showPage', ['film' => $film, 'reviewYet' => $reviewYet]);
+        } else{
+            return view('film.showPage', ['film' => $film]);
+        }
+        
+
+        
     }
 
     /**

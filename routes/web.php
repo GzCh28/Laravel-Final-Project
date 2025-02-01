@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CastsController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,15 +32,20 @@ Route::get('/datatable', [AuthController::class, 'dataTablePage']);
 
 
 Route::middleware(['auth'])->group(function () {
+  //Cast Route (Group)
   # Create
   Route::get('/cast/create', [CastsController::class, 'createCast']);
   Route::post('/cast', [CastsController::class, 'postCreate']);
   # Update
   Route::get('/cast/recreate/{id}', [CastsController::class, 'recreateCast']);
   Route::put('/cast/update/{id}', [CastsController::class, 'updateCast']);
-
   # Delete
   Route::get('/cast/delete/{id}', [CastsController::class, 'deleteCast']);
+
+  //Reviews Route
+  Route::get('/review/create/{id}', [ReviewsController::class, 'create']);
+  Route::post('/review/{id}', [ReviewsController::class, 'store']);
+  Route::get('/review/delete/{id}/{review}', [ReviewsController::class, 'deleteCast']);
 });
 
 
@@ -62,3 +68,4 @@ Route::resource('profile', ProfileController::class);
 //Auth Route
 Auth::routes();
 
+//Reviews Route

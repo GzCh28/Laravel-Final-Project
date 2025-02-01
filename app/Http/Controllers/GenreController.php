@@ -53,7 +53,8 @@ class GenreController extends Controller
 
     public function show(string $id)
     {
-        return redirect('/genre');
+        $genre = Genre::find($id);
+        return view('genre.showPage', ['genre' => $genre]);
     }
 
     /**
